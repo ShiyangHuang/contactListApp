@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="contactlistapp">
+<head >
+    <title>Contact List App</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+
+</head>
+<body  ng-controller="controller">
+    <div class="container">
+        <h1>Contact List App</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Number</th>
+                    <th>Action</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input class="form-control" ng-model="contact.name">
+                    </td>
+                    <td>
+                        <input class="form-control" ng-model="contact.email">
+                    </td>
+                    <td>
+                        <input class="form-control" ng-model="contact.number">
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" ng-click="addContact()">Add Contact</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;
+                        <button class="btn btn-info" ng-click="deselect()">Clear</button>
+                    </td>
+                </tr>
+                <tr ng-repeat="person in contactlist">
+                    <td>{{person.name}}</td>
+                    <td>{{person.email}}</td>
+                    <td>{{person.number}}</td>
+                    <td><button class="btn btn-danger" ng-click="remove(person._id)">Remove</button></td>
+                    <td><button class="btn btn-warning" ng-click="edit(person._id)">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+    <script src="controllers/controllers.js"></script>
+</body>
+</html>
